@@ -4,6 +4,11 @@ export default function Projects() {
   // Example project data
   const projects = [
     {
+      title:'Floor Plan Generation',
+      description:'A research on various methods to genrate floorplan using furniture dimensions',
+      link:'https://drive.google.com/drive/folders/1Mg_KmBl7Uo0hUeA7vN8aGLk3MtdkZPjs?usp=sharing'
+    },
+    {
       title: 'Personal Portfolio',
       description: 'A responsive portfolio site built with React.',
       link: 'https://your-portfolio-link.com'
@@ -16,7 +21,7 @@ export default function Projects() {
     {
       title: 'Blog Platform',
       description: 'A simple blog with Markdown support and user comments.',
-      link: 'https://your-blog-link.com'
+      link:'/blog'
     }
   ];
 

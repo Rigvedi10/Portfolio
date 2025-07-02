@@ -14,10 +14,25 @@ export default function Projects() {
       link: 'https://your-portfolio-link.com'
     },
     {
-      title: 'E-commerce Store',
-      description: 'A mock online store using React and Stripe for payments.',
-      link: 'https://your-store-link.com'
-    },
+    title: 'E-commerce Store',
+    description: 'A mock online store using React and Stripe for payments.',
+    link: 'https://your-store-link.com'
+  },
+  {
+    title: 'Deepfake Image Detection & Model Comparison Platform',
+    description: 'An interactive tool comparing classical ML and deep learning models (SVM, Random Forest, Xception CNN) for deepfake detection on CIFAKE and HuggingFace datasets (120K+ images). Built with Python, Scikit-learn, TensorFlow, OpenCV, Streamlit. Features custom feature extraction, transfer learning, and visual model comparison.',
+    link: '' // Add link if hosted or GitHub repo
+  },
+  {
+    title: 'Digi FM',
+    description: 'A global online FM application. Users can listen to FM anywhere, set reminders for upcoming shows, and connect with RJs via social media.',
+    link: '' // Add link if hosted or GitHub repo
+  },
+  {
+    title: 'Interactive Robot using E-waste',
+    description: 'A smart robot built using E-waste, LDRs, Relay module, smartphone app, motors, and LEDs. Acts like a Google Assistant with smart fan and LED control.',
+    link: '' // Add link if available
+  },
     {
       title: 'Blog Platform',
       description: 'A simple blog with Markdown support and user comments.',

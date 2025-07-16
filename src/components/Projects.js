@@ -6,7 +6,7 @@ export default function Projects() {
     {
       title:'Floor Plan Generation',
       description:'A research on various methods to genrate floorplan using furniture dimensions',
-      link:'https://drive.google.com/drive/folders/1Mg_KmBl7Uo0hUeA7vN8aGLk3MtdkZPjs?usp=sharing'
+      link:''//'https://drive.google.com/drive/folders/1Mg_KmBl7Uo0hUeA7vN8aGLk3MtdkZPjs?usp=sharing'
     },
     {
       title: 'Personal Portfolio',

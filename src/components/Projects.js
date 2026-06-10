@@ -1,59 +1,77 @@
-import React from 'react';
+import { useMemo, useState } from 'react';
+import { projects } from '../data';
+import ProjectCard from './ProjectCard';
 
 export default function Projects() {
-  // Example project data
-  const projects = [
-    {
-      title:'Floor Plan Generation',
-      description:'A research on various methods to genrate floorplan using furniture dimensions',
-      link:''//'https://drive.google.com/drive/folders/1Mg_KmBl7Uo0hUeA7vN8aGLk3MtdkZPjs?usp=sharing'
-    },
-    {
-      title: 'Personal Portfolio',
-      description: 'A responsive portfolio site built with React.',
-      link: 'https://your-portfolio-link.com'
-    },
-    {
-    title: 'E-commerce Store',
-    description: 'A mock online store using React and Stripe for payments.',
-    link: 'https://your-store-link.com'
-  },
-  {
-    title: 'Deepfake Image Detection & Model Comparison Platform',
-    description: 'An interactive tool comparing classical ML and deep learning models (SVM, Random Forest, Xception CNN) for deepfake detection on CIFAKE and HuggingFace datasets (120K+ images). Built with Python, Scikit-learn, TensorFlow, OpenCV, Streamlit. Features custom feature extraction, transfer learning, and visual model comparison.',
-    link: '' // Add link if hosted or GitHub repo
-  },
-  {
-    title: 'Digi FM',
-    description: 'A global online FM application. Users can listen to FM anywhere, set reminders for upcoming shows, and connect with RJs via social media.',
-    link: '' // Add link if hosted or GitHub repo
-  },
-  {
-    title: 'Interactive Robot using E-waste',
-    description: 'A smart robot built using E-waste, LDRs, Relay module, smartphone app, motors, and LEDs. Acts like a Google Assistant with smart fan and LED control.',
-    link: '' // Add link if available
-  },
-    {
-      title: 'Blog Platform',
-      description: 'A simple blog with Markdown support and user comments.',
-      link:'/blog'
-    }
-  ];
+  const [query, setQuery] = useState('');
+  const [activeTag, setActiveTag] = useState('all');
+
+  const allTags = useMemo(() => {
+    const s = new Set();
+    projects.forEach((p) => p.tags.forEach((t) => s.add(t)));
+    return ['all', ...Array.from(s).sort()];
+  }, []);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return projects.filter((p) => {
+      const matchesQuery =
+        !q ||
+        p.title.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.tags.some((t) => t.includes(q));
+      const matchesTag = activeTag === 'all' || p.tags.includes(activeTag);
+      return matchesQuery && matchesTag;
+    });
+  }, [query, activeTag]);
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>My Projects</h1>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '600px' }}>
-        {projects.map((project, index) => (
-          <div key={index} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '1rem' }}>
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
-              View Project
-            </a>
-          </div>
-        ))}
+    <div className="container page">
+      <div className="page-head">
+        <span className="eyebrow">Portfolio</span>
+        <h1 className="section-title">Projects</h1>
+        <p className="lead">
+          Selected work across machine learning, web, and hardware — with short write-ups and the tools behind each one.
+        </p>
       </div>
+
+      <div className="proj-toolbar">
+        <div className="search-field">
+          <span className="search-ico">🔍</span>
+          <input
+            className="search-input"
+            type="search"
+            placeholder="Search projects, e.g. 'ml' or 'react'"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search projects"
+          />
+        </div>
+        <div className="filter-row">
+          {allTags.map((t) => (
+            <button
+              key={t}
+              className={`filter-chip ${activeTag === t ? 'active' : ''}`}
+              onClick={() => setActiveTag(t)}
+            >
+              {t === 'all' ? 'All' : `#${t}`}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {filtered.length > 0 ? (
+        <div className="proj-grid">
+          {filtered.map((p) => (
+            <ProjectCard key={p.title} project={p} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-state">
+          <p style={{ fontSize: '2.2rem', marginBottom: '0.5rem' }}>🔍</p>
+          <p>No projects match your search. Try a different keyword or filter.</p>
+        </div>
+      )}
     </div>
   );
 }

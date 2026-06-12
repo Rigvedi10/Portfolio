@@ -23,7 +23,7 @@ export const socials = [
 
 export const stats = [
   { num: '5+', label: 'Years Experience' },
-  { num: '7', label: 'Projects Shipped' },
+  { num: '10', label: 'Projects Shipped' },
   { num: '6', label: 'Core Skills' },
   { num: '∞', label: 'Curiosity' },
 ];
@@ -59,13 +59,43 @@ export const interests = ['Reading', 'Photography', 'Outdoors', 'Open Source', '
 
 export const projects = [
   {
-    title: 'Floor Plan Generation',
-    description: 'Research into generating 2D architectural floorplans from furniture dimensions using diffusion models.',
-    tags: ['research', 'computer-vision', 'ml'],
+    title: 'Agentic KPI Monitor',
+    description:
+      'Distributed agentic observability platform for enterprise KPI surveillance — autonomous anomaly triage with Neo4j graph-driven root-cause analysis, async event streaming, and tool-augmented LLMs that synthesize RCA artifacts.',
+    tags: ['llm', 'agents', 'ml', 'backend'],
+    icon: '📡',
+    grad: 'linear-gradient(135deg, #6366f1, #ec4899)',
+    year: '2025',
+    featured: true,
+  },
+  {
+    title: 'Netflix-Style OTT Recommender',
+    description:
+      'Two-stage recommender for an OTT platform: a two-tower neural network (user/item towers, in-batch negatives) trained on 10M+ interactions, serving sub-100ms top-K retrieval via a FAISS ANN index, plus a contextual bandit for thumbnail personalization.',
+    tags: ['ml', 'deep-learning', 'recommenders'],
+    icon: '🎬',
+    grad: 'linear-gradient(135deg, #ef4444, #8b5cf6)',
+    year: '2024',
+    featured: true,
+  },
+  {
+    title: 'Document Intelligence (OCR + LayoutLM)',
+    description:
+      'End-to-end document understanding pipeline: OCR-based text extraction with a fine-tuned LayoutLM model for layout-aware parsing of forms and invoices, and in-browser LLM inference exported to ONNX for private, on-device processing.',
+    tags: ['ml', 'nlp', 'computer-vision', 'onnx'],
+    icon: '📄',
+    grad: 'linear-gradient(135deg, #06b6d4, #6366f1)',
+    year: '2025',
+    featured: true,
+  },
+  {
+    title: 'AI-Assisted Floorplan Generation',
+    description:
+      'Constraint-satisfaction and generative spatial-synthesis system turning program requirements into topology-consistent floorplan layouts via a hybrid symbolic (MILP, constraint programming, graph algorithms) and neural (transformers, diffusion) pipeline.',
+    tags: ['research', 'computer-vision', 'ml', 'generative'],
     icon: '📐',
     grad: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
     year: '2024',
-    featured: true,
   },
   {
     title: 'Deepfake Detection Platform',
@@ -74,7 +104,6 @@ export const projects = [
     icon: '🕵️',
     grad: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
     year: '2023',
-    featured: true,
   },
   {
     title: 'Interactive Robot (E-waste)',
@@ -83,7 +112,6 @@ export const projects = [
     icon: '🤖',
     grad: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
     year: '2023',
-    featured: true,
   },
   {
     title: 'Digi FM',
